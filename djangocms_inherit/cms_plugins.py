@@ -69,12 +69,11 @@ class InheritPagePlaceholderPlugin(CMSPluginBase):
     def _render_plugin(self, plugin, context):
         if ContentRenderer is not None:
             # djangoCMS >= 3.4
-            content = cms_content_renderer.render_plugin(
-                content=ContentRenderer(context['request']).render_plugin(
-                    instance=plugin,
-                    context=context,
-                    editable=False,
-                ))
+            content = ContentRenderer(context['request']).render_plugin(
+                instance=plugin,
+                context=context,
+                editable=False,
+            )
         else:
             plugin_context = copy.copy(context)
             content = plugin.render_plugin(plugin_context)
