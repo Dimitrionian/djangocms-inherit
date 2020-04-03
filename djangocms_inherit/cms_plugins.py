@@ -74,7 +74,7 @@ class InheritPagePlaceholderPlugin(CMSPluginBase):
                     instance=plugin,
                     context=context,
                     editable=False,
-                )
+                ))
         else:
             plugin_context = copy.copy(context)
             content = plugin.render_plugin(plugin_context)
